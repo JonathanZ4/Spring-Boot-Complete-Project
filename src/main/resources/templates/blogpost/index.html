@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Blog Site</title>
+	<div th:replace="fragments/styling :: head-style" ></div>
+	<link rel="stylesheet" href = "standard.css"> 
+
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar" ></div>
+
+
+<div class="container">
+<h1>Welcome to Foodie System</h1>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron-fluid text-center">
+          <h1 class="animated fadeInDown">Smell like Southern Cookin on a Alabama Sunday </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        
+      </div>
+      <div class="col-md-4">
+        <img src="/images/FoodieSystemPik.jpg">
+      </div>
+      <div class="col-md-4">
+		<a href="#" th:href="@{complimentary}"  target="_blank"><h1><i>Compliment Your Taste CLICK HERE<i><h1></a>
+	
+		
+
+      </div>
+    </div>
+  </div>
+  
+  <h2>Do you have favorite places to dine?</h2> 
+  <h2>Let us know in the foodie blog</h2> 
+  
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/images/MiniWaterfalls.jpg">
+      </div>
+      <div class="col-md-4">
+        <img src="">
+      </div>
+      <div class="col-md-4">
+		<img src="" >
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/images/TopForest.jpg">
+      </div>
+      <div class="col-md-4">
+        <img src="">
+      </div>
+      <div class="col-md-4">
+		<img src="" >
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="">
+      </div>
+      <div class="col-md-4">
+        <img src="/images/SunnyBeachPic.jpg">
+      </div>
+      <div class="col-md-4">
+		<img src="" >
+      </div>
+    </div>
+  </div>
+  
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center">
+        <h1>Eat In Paradise</h1>
+        <h1>Fine Dining</h1>
+
+      </div>
+    </div>
+  </div>
+  
+  <form>
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name"><br>
+    <p>Select any that apply:</p>
+    <label for="Mountains">Mountains</label>
+    <input type="checkbox" id="Mountains" name="Mountains"><br> 
+    
+    <label for="Beach">Beach</label>
+    <input type="checkbox" id="Beach" name="Beach"><br>
+
+    <label for="At Home!">At Home!</label>
+    <input type="checkbox" id="At Home!" name="At Home!"><br>
+
+    <label for="Lake/Creek">Lake/Creek</label>
+    <input type="checkbox" id="Lake/Creek" name="Lake/Creek"><br>
+</form>
+
+  
+      <div class="carousel-inner">
+            <div class="carousel-item active">
+              <h1> Where </h1>
+            </div>
+            <div class="carousel-item">
+              <h1>Would</h1>
+            </div>
+            <div class="carousel-item">
+              <h1>You Go????</h1>
+            </div>
+          </div>
+          
+          
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+    
+	<div class="row">
+		<div th:each="blog:${posts}">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 th:text="${blog.title}"></h2>
+				</div>
+				<div class="panel-body">
+					<strong><p th:text="${blog.author}"/></strong>
+					<p th:text="${blog.blogEntry}" />
+				</div>
+				<div class="panel-footer">
+					 <div class="panel-footer">
+        				<a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+            				<button class="btn btn-light">Edit Post</button>
+        				</a>
+        				<a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+							<button class="btn btn-danger" type="submit">Delete Post</button>
+						</a>
+    </div>
+					<!-- Link to Show  -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+</div>
+
+
+
+
+
+	<div th:replace="/fragments/styling :: body-links" ></div>
+</body>
+</html>

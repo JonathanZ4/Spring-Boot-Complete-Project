@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Blog Site</title>
+	<div th:replace="fragments/styling :: head-style" ></div>
+	<link rel="stylesheet" href = "foreignz.css"> 
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar" ></div>
+
+
+<div class="container">
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron-fluid text-center">
+          <h1 class="animated fadeInDown">How you pullin up to your Lux Meal??? </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/images/rolls-royce-ghost-2022.jpg">
+      </div>
+      <div class="col-md-4">
+        <img src="">
+      </div>
+      <div class="col-md-4">
+		<img src="/images/ferrari-JamesEdition.jpeg">
+      </div>
+    </div>
+  </div>
+  
+  <h1>What's your taste of speed?</h1>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/images/chrysler-300-hellcat.jpeg">
+      </div>
+      <div class="col-md-4">
+        <img src="/images/aston-martin-vantage-WildCoupe.jpg">
+      </div>
+      <div class="col-md-4">
+		<img src= "">
+      </div>
+    </div>
+  </div>
+   
+  <h2>Let us know in the blog</h2> 
+  
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/images/2022-ferrari-sf90-spider.jpg">
+      </div>
+      <div class="col-md-6">
+        <img src="/images/lamborghini-urus.jpg">
+      </div>
+      
+    </div>
+  </div>
+     
+
+	<div class="row">
+		<div th:each="blog:${posts}">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 th:text="${blog.title}"></h2>
+				</div>
+				<div class="panel-body">
+					<strong><p th:text="${blog.author}"/></strong>
+					<p th:text="${blog.blogEntry}" />
+				</div>
+				<div class="panel-footer">
+					 <div class="panel-footer">
+        				<a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+            				<button class="btn btn-light">Edit Post</button>
+        				</a>
+        				<a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+							<button class="btn btn-danger" type="submit">Delete Post</button>
+						</a>
+    </div>
+					<!-- Link to Show  -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+</div>
+
+
+
+
+
+	<div th:replace="/fragments/styling :: body-links" ></div>
+</body>
+</html>
